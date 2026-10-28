@@ -16,7 +16,7 @@ const configSchema = z.object({
   PORT: z.string().regex(/^\d+$/).transform(Number).default('3000'),
 
   REDIS_URL: z.string().url(),
-  MONGO_DATABASE_URL: z.string().url(),
+  MONGO_DATABASE_URL: z.string().url().default(process.env.DATABASE_URL ?? ''),
 
   CLIENT_SIDE_URL: z.string().url(),
 
